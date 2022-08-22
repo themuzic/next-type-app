@@ -4,6 +4,14 @@ body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+
+  color: #FFF;
+  overflow-x: hidden;
+}
+
+body {
+  width: 100%;
+  margin : 0 auto;
 }
 
 a {
@@ -21,6 +29,7 @@ a {
   }
   body {
     color: white;
-    background: black;
+    background: radial-gradient( #222534, #232633, #05070c );
+    overflow-x: hidden;
   }
 }
