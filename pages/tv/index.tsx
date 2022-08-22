@@ -2,14 +2,24 @@ import { useState, useEffect } from "react";
 import Seo from "components/Seo";
 import dynamic from "next/dynamic";
 import ManualSlider from "components/ManualSlider";
+import { Company } from "pages";
+
+export interface Content {
+  id: string,
+  poster_path: string,
+  backdrop_path: string,
+  original_title: string | undefined,
+  original_name : string | undefined,
+  production_companies: Array<Company> | undefined,  
+}
 
 export default function MovieHome() {
   const ManualSliderNoSSR = dynamic(() => import("components/ManualSlider"), {
     ssr: false,
   });
-  const [popular, setPopular] = useState([]);
-  const [latest, setLatest] = useState([]);
-  const [vote, setVote] = useState([]);
+  const [popular, setPopular] = useState<Content[]>([]);
+  const [latest, setLatest] = useState<Content[]>([]);
+  const [vote, setVote] = useState<Content[]>([]);
   useEffect(() => {
     (async () => {
       const { results } = await (await fetch(`/api/tv/popular`)).json();

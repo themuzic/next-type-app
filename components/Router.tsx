@@ -1,6 +1,13 @@
 import Link from "next/link";
 
-export default function Router({ path, name, isActive, isLogo }) {
+type RouterProps = {
+  path: string,
+  name: string,
+  isActive: boolean,
+  isLogo: boolean,
+}
+
+export default function Router({ path, name, isActive, isLogo }: RouterProps) {
   return (
     <Link href={path}>
       <a className={isActive ? "active" : ""}>
